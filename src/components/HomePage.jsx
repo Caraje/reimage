@@ -1,4 +1,6 @@
 import React from 'react'
+import { homeData } from '../../data/homeData'
+import CardInfo from './Home/CardInfo'
 
 function HomePage () {
   return (
@@ -12,15 +14,14 @@ function HomePage () {
           height={126}
         />
         {/* <h1>Edita tus imagenes</h1> */}
-        <div className='bg-slate-300 w-96  aspect-video rounded-lg p-2 '>
+        <div className='bg-slate-100 w-96  aspect-video rounded-lg p-2 '>
           <div className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'>
 
             <img
-              className='text-white fill-current'
               src='./static_img/img_Icon.svg'
               alt='Icono de imagenes'
-              width={50}
-              height={50}
+              width={75}
+              height={75}
             />
             <h2 className='text-gray-900 font-semibold text-xl flex flex-col text-center'>Drop your <span>Image</span></h2>
           </div>
@@ -30,29 +31,18 @@ function HomePage () {
       {/* SEPARACION DE SECCIONES  */}
 
       <section className='mt-16 mx-auto flex flex-col flex-wrap gap-48 max-w-7xl mb-10'>
-        <article className='flex  flex-col md:flex-row-reverse  justify-center items-center gap-10  p-10 md:p-4'>
-          <header className='md:w-1/2 h-full p-0 md:p-8 '>
-            <h2 className='text-[#fbed21] text-5xl font-bold mb-8'>Mejore sus Imagenes</h2>
-            <p className='text-xl'>Abre tu imagen y prueba los diferentes ajustes que te ofrecemos para mejorar los colores, el contraste o el brillo de tus fotos</p>
-          </header>
-          <img className='md:w-1/2 rounded-2xl border border-[#fbed21] ' src='./static_img/colors_img.webp' alt='imagen que muestra la compracion conarreglo de colores' width={960} height={540} />
-        </article>
+        {
+          homeData.map(el => (
+            <CardInfo
+              key={el.id}
+              title={el.title}
+              img={el.img}
+              text={el.text}
+              id={el.id}
+            />
+          ))
+        }
 
-        <article className='flex  flex-col md:flex-row  justify-center items-center gap-10  p-10 md:p-4'>
-          <header className='md:w-1/2 h-full p-0 md:p-8 '>
-            <h2 className='text-[#fbed21] text-5xl font-bold mb-8'>Ajuste el tamaño</h2>
-            <p className='text-xl'>Pruebe a usar las opciones para escalar o ajustar sus imagenes, para que siempre tengan el tamaño y las proporciones correctas.</p>
-          </header>
-          <img className='md:w-1/2 rounded-2xl border border-[#fbed21] ' src='./static_img/scale_img.webp' alt='imagen que muestra una imagen reescalada en compracion con otra' width={960} height={540} />
-        </article>
-
-        <article className='flex  flex-col md:flex-row-reverse justify-center items-center  gap-10 p-10 md:p-4'>
-          <header className='md:w-1/2 h-full p-0 md:p-8 '>
-            <h2 className='text-[#fbed21] text-5xl font-bold mb-8'>Elimine los fondos</h2>
-            <p className='text-xl'>Seleccione una foto para poder eliminar el fondo por completo de manera sencilla y rapida, para poder usarla en sus proyectos.</p>
-          </header>
-          <img className='md:w-1/2 rounded-2xl border border-[#fbed21] ' src='./static_img/bg.webp' alt='imagen que muestra una imagen a la que le han eliminado el fondo' width={960} height={540} />
-        </article>
       </section>
 
       {/* SEPARACION DE SECCIONES  */}
