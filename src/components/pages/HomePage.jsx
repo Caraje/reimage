@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { homeData } from '../../data/homeData'
-import CardInfo from './Home/CardInfo'
+import { homeData } from '../../../data/homeData'
+
 import Dropzone from 'dropzone'
 import 'dropzone/dist/dropzone.css'
+import CardInfo from '../Home/CardInfo'
 
 function HomePage () {
   const test = () => {
@@ -46,7 +47,9 @@ function HomePage () {
             action='https://api.cloudinary.com/v1_1/caraje/image/upload'
             className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'
           >
-            <button>
+
+            <button type='button'>
+              <input className='hidden' type='file' visbility='hidden' id='file' />
               <img
                 src='./static_img/img_Icon.svg'
                 alt='Icono de imagenes'
