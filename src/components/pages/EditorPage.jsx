@@ -6,6 +6,8 @@ import ResizeForm from '../editor/forms/ResizeForm'
 import SaturationForm from '../editor/forms/SaturationForm'
 import ImgEditor from '../editor/ImgEditor'
 
+const BASE_URL = 'https://res.cloudinary.com/caraje/image/upload/'
+
 function EditorPage () {
   const image = JSON.parse(window.sessionStorage.getItem('image'))
   const [resizing, setResizing] = useState({
@@ -14,10 +16,10 @@ function EditorPage () {
   })
   const [improve, setImprove] = useState(0)
   const [saturation, setSaturation] = useState(0)
-  const [editedImg, setEditedImg] = useState(`https://res.cloudinary.com/caraje/image/upload/e_saturation:${saturation}/e_improve/e_improve:0/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
+  const [editedImg, setEditedImg] = useState(`${BASE_URL}e_saturation:${saturation}/e_improve:${improve}/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
 
   useEffect(() => {
-    setEditedImg(`https://res.cloudinary.com/caraje/image/upload/e_saturation:${saturation}/e_improve:${improve}/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
+    setEditedImg(`${BASE_URL}e_saturation:${saturation}/e_improve:${improve}/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
   }, [resizing, improve, saturation])
 
   const originalImg = image.url
