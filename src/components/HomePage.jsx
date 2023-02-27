@@ -2,8 +2,32 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { homeData } from '../../data/homeData'
 import CardInfo from './Home/CardInfo'
+import Dropzone from 'dropzone'
+import 'dropzone/dist/dropzone.css'
 
 function HomePage () {
+  const test = () => {
+    const dropzone = new Dropzone('#dropzone', {
+      uploadMultiple: false,
+      acceptedFiles: '.jpg, .png, .webp',
+      maxFiles: 1
+    })
+    dropzone.on('sending', (file, xhr, formData) => {
+      formData.append('file', file)
+      formData.append('upload_preset', 'zeu823b9')
+      formData.append('timestamp', (Date.now() / 1000))
+      formData.append('api_key', '874151438335991')
+    })
+
+    dropzone.on('success', (file, response) => {
+      window.sessionStorage.setItem('image', response.secure_url)
+      window.location.replace('/editor')
+    })
+    dropzone.on('error', (file, response) => {
+      console.log('Ha ido Mal')
+      console.log(response)
+    })
+  }
   return (
     <>
       <main className=' flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
@@ -16,16 +40,22 @@ function HomePage () {
         />
         {/* <h1>Edita tus imagenes</h1> */}
         <div className='bg-slate-100 w-96  aspect-video rounded-lg p-2 '>
-          <div className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'>
-
-            <img
-              src='./static_img/img_Icon.svg'
-              alt='Icono de imagenes'
-              width={75}
-              height={75}
-            />
-            <h2 className='text-gray-900 font-semibold text-xl flex flex-col text-center'>Drop your <span>Image</span></h2>
-          </div>
+          <form
+            id='dropzone'
+            onDragEnter={test}
+            action='https://api.cloudinary.com/v1_1/caraje/image/upload'
+            className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'
+          >
+            <button>
+              <img
+                src='./static_img/img_Icon.svg'
+                alt='Icono de imagenes'
+                width={75}
+                height={75}
+              />
+              <h2 className='text-gray-900 font-semibold text-xl flex flex-col text-center'>Drop your <span>Image</span></h2>
+            </button>
+          </form>
         </div>
       </main>
 
