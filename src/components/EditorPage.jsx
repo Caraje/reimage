@@ -1,10 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
+import { Link } from 'react-router-dom'
 function EditorPage () {
+  const imagen = window.sessionStorage.getItem('image')
+
   return (
     <>
-      <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] ' />
+      <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
+        <img src={imagen} />
+        <h1>HOLA MUNDO</h1>
+      </main>
       <footer className='bg-[#fbed21] h-12 flex flex-col items-center justify-center'>
         <p className='text-black text-center'>App creada por <a href='https://www.carlosajenjo.es/' target='_blank' rel='noreferrer'>Carlos Ajenjo </a></p>
       </footer>
