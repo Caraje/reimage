@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
+import ImproveForm from '../editor/forms/ImproveForm'
+import ResizeForm from '../editor/forms/ResizeForm'
+import SaturationForm from '../editor/forms/SaturationForm'
 import ImgEditor from '../editor/ImgEditor'
 function EditorPage () {
   const data = JSON.parse(window.sessionStorage.getItem('image'))
@@ -10,11 +13,12 @@ function EditorPage () {
     h: image.height
   })
   const [improve, setImprove] = useState(0)
-  const [editedImg, setEditedImg] = useState(`https://res.cloudinary.com/caraje/image/upload/e_improve/e_improve:0/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
+  const [saturation, setSaturation] = useState(0)
+  const [editedImg, setEditedImg] = useState(`https://res.cloudinary.com/caraje/image/upload/e_saturation:${saturation}/e_improve/e_improve:0/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
 
   useEffect(() => {
-    setEditedImg(`https://res.cloudinary.com/caraje/image/upload/e_improve:${improve}/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
-  }, [resizing, improve])
+    setEditedImg(`https://res.cloudinary.com/caraje/image/upload/e_saturation:${saturation}/e_improve:${improve}/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
+  }, [resizing, improve, saturation])
 
   const originalImg = image.url
 
@@ -23,68 +27,40 @@ function EditorPage () {
     event.preventDefault()
     setResizing({
       w: event.target.h.value,
-      h: event.target.w.value,
-      improve: event.target.improve.value
+      h: event.target.w.value
     })
   }
   // LO RELATIVO AL IMPROVE
   const handleImprove = (event) => {
     event.preventDefault()
-    // console.log(event.target.improve.value)
     setImprove(event.target.improve.value)
   }
 
-  const Download = () => {
-
+  // Lo RELATIVO A LA SATURACION
+  // https://res.cloudinary.com/demo/image/upload/e_saturation:60/vegetable_soup.jpg
+  const handleSaturation = (event) => {
+    event.preventDefault()
+    setSaturation(event.target.saturation.value)
   }
 
   return (
     <>
       <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
         <section className={`flex justify-center items-center w-[${image.width}px] max-h-[${image.height}px] bg-gray-700/50 rounded-3xl border-2 border-[#fbed21] p-4`}>
-          <ImgEditor img={originalImg} editedImg={editedImg} />
+          {
+            data ? <ImgEditor img={originalImg} editedImg={editedImg} /> : <h2>No hay imagen disponible</h2>
+          }
         </section>
-        <div>
+        <section className='absolute bottom-8 right-8 bg-slate-700 flex flex-col gap-7 items-center justify-center p-4 rounded-2xl shadow-2xl'>
 
           {/* FORMULARIO PARA EL RESIZE */}
-          <form onSubmit={handleResize}>
-            <label>
-              ANCHO:
-              <input
-                className='text-gray-900'
-                name='w'
-                type='number'
-                placeholder={resizing.w}
-              />
-            </label>
-            <label>
-              ALTO:
-              <input
-                className='text-gray-900'
-                name='h'
-                type='number'
-                placeholder={resizing.h}
-              />
-            </label>
-            <button className='hidden' />
-          </form>
+          <ResizeForm handleResize={handleResize} resizing={resizing} />
           {/* FORMULARIO PARA EL IMPROVE */}
-          <form onSubmit={handleImprove}>
-            <label>
-              Improve
-              <input
-                className='text-gray-900'
-                name='improve'
-                type='number'
-                min={0}
-                max={100}
-                placeholder={improve}
-              />
-            </label>
-            <button className='hidden' />
+          <ImproveForm handleImprove={handleImprove} improve={improve} />
+          {/* FORMULARIO PARA EL IMPROVE */}
+          <SaturationForm handleSaturation={handleSaturation} saturation={saturation} />
 
-          </form>
-        </div>
+        </section>
       </main>
       <footer className='bg-[#fbed21] h-12 flex flex-col items-center justify-center'>
         <p className='text-black text-center'>App creada por <a href='https://www.carlosajenjo.es/' target='_blank' rel='noreferrer'>Carlos Ajenjo </a></p>
