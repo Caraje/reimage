@@ -5,9 +5,9 @@ import ImproveForm from '../editor/forms/ImproveForm'
 import ResizeForm from '../editor/forms/ResizeForm'
 import SaturationForm from '../editor/forms/SaturationForm'
 import ImgEditor from '../editor/ImgEditor'
+
 function EditorPage () {
-  const data = JSON.parse(window.sessionStorage.getItem('image'))
-  const [image, setImage] = useState(data)
+  const image = JSON.parse(window.sessionStorage.getItem('image'))
   const [resizing, setResizing] = useState({
     w: image.width,
     h: image.height
@@ -26,8 +26,8 @@ function EditorPage () {
   const handleResize = (event) => {
     event.preventDefault()
     setResizing({
-      w: event.target.h.value,
-      h: event.target.w.value
+      w: event.target.w.value,
+      h: event.target.h.value
     })
   }
   // LO RELATIVO AL IMPROVE
@@ -48,7 +48,7 @@ function EditorPage () {
       <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
         <section className={`flex justify-center items-center w-[${image.width}px] max-h-[${image.height}px] bg-gray-700/50 rounded-3xl border-2 border-[#fbed21] p-4`}>
           {
-            data ? <ImgEditor img={originalImg} editedImg={editedImg} /> : <h2>No hay imagen disponible</h2>
+            image ? <ImgEditor img={originalImg} editedImg={editedImg} /> : <h2>No hay imagen disponible</h2>
           }
         </section>
         <section className='absolute bottom-8 right-8 bg-slate-700 flex flex-col gap-7 items-center justify-center p-4 rounded-2xl shadow-2xl'>
