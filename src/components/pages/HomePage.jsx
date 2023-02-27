@@ -10,7 +10,7 @@ function HomePage () {
   const test = () => {
     const dropzone = new Dropzone('#dropzone', {
       uploadMultiple: false,
-      acceptedFiles: '.jpg, .png, .webp',
+      acceptedFiles: '.jpg, .jpeg, .png, .webp',
       maxFiles: 1
     })
     dropzone.on('sending', (file, xhr, formData) => {
@@ -21,7 +21,17 @@ function HomePage () {
     })
 
     dropzone.on('success', (file, response) => {
-      window.sessionStorage.setItem('image', response.secure_url)
+      const image = {
+        url: response.url,
+        height: response.height,
+        width: response.width,
+        format: response.format,
+        public_id: response.public_id,
+        created_at: response.created_at,
+        bytes: response.bytes,
+        version: response.version
+      }
+      window.sessionStorage.setItem('image', JSON.stringify(image))
       window.location.replace('/editor')
     })
     dropzone.on('error', (file, response) => {
