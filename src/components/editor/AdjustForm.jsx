@@ -213,6 +213,7 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
       </div>
       <div className=' flex gap-3 w-full mt-2'>
         <button className='w-full bg-[#fbed21] text-slate-900 p-1 rounded-lg'>Apply</button>
+        <button type='reset' className='w-full bg-[#fbed21] text-slate-900 p-1 rounded-lg'>reset</button>
 
       </div>
     </form>
