@@ -1,48 +1,64 @@
 import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
-import ImproveForm from '../editor/forms/ImproveForm'
-import ResizeForm from '../editor/forms/ResizeForm'
-import SaturationForm from '../editor/forms/SaturationForm'
+import AdjustForm from '../editor/AdjustForm'
 import ImgEditor from '../editor/ImgEditor'
-
-const BASE_URL = 'https://res.cloudinary.com/caraje/image/upload/'
 
 function EditorPage () {
   const image = JSON.parse(window.sessionStorage.getItem('image'))
-  const [resizing, setResizing] = useState({
-    w: image.width,
-    h: image.height
-  })
-  const [improve, setImprove] = useState(0)
-  const [saturation, setSaturation] = useState(0)
-  const [editedImg, setEditedImg] = useState(`${BASE_URL}e_saturation:${saturation}/e_improve:${improve}/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
-
-  useEffect(() => {
-    setEditedImg(`${BASE_URL}e_saturation:${saturation}/e_improve:${improve}/w_${resizing.w},h_${resizing.h},c_fill/v${image.version}/${image.public_id}.${image.format}`)
-  }, [resizing, improve, saturation])
-
   const originalImg = image.url
 
-  // LO RELATIVO AL RESIZE
-  const handleResize = (event) => {
-    event.preventDefault()
-    setResizing({
-      w: event.target.w.value,
-      h: event.target.h.value
-    })
-  }
-  // LO RELATIVO AL IMPROVE
-  const handleImprove = (event) => {
-    event.preventDefault()
-    setImprove(event.target.improve.value)
-  }
+  const BASE_URL = 'https://res.cloudinary.com/caraje/image/upload/'
+  const IMG_DATA = `v${image.version}/${image.public_id}.${image.format}`
 
-  // Lo RELATIVO A LA SATURACION
-  // https://res.cloudinary.com/demo/image/upload/e_saturation:60/vegetable_soup.jpg
-  const handleSaturation = (event) => {
+  const [editedImg, setEditedImg] = useState(originalImg)
+  const [adjusts, setAdjusts] = useState({
+    fill: `c_limit,h_${image.height},w_${image.width}`,
+    grayscale: '',
+    negative: '',
+    format: '',
+    quality: '',
+    improve: '',
+    saturation: '',
+    constrast: '',
+    brightness: '',
+    gamma: '',
+    colorize: '',
+    blur: '',
+    sepia: '',
+    oilPaint: '',
+    colorBlind: '',
+    pixelate: ''
+  })
+  // console.log({ editedImg })
+
+  useEffect(() => {
+    setEditedImg(`${BASE_URL}${Object.values(adjusts).filter(adj => adj).join('/')}/${IMG_DATA}`)
+    // console.log({ editedImg })
+  }, [adjusts])
+
+  const handleAdjusts = (event) => {
     event.preventDefault()
-    setSaturation(event.target.saturation.value)
+
+    const { height, width, grayscale, negative, format, quality, improve, saturation, constrast, brightness, gamma, colorizeLevel, colorizeColor, blur, sepia, oilPaint, colorblind, pixelate } = event.target
+    setAdjusts({
+      fill: `c_limit,h_${height.value ? height.value : image.height},w_${width.value ? width.value : image.height}`,
+      grayscale: grayscale.checked && 'e_grayscale',
+      negative: negative.checked && 'e_negate',
+      improve: improve.value ? `e_improve:${improve.value}` : '',
+      saturation: saturation.value ? `e_saturation:${saturation.value}` : '',
+      constrast: constrast.value ? `e_contrast:${constrast.value}` : '',
+      brightness: brightness.value ? `e_brightness:${brightness.value}` : '',
+      gamma: gamma.value ? `e_gamma:${gamma.value}` : '',
+      colorize: colorizeLevel.value ? `co_rgb:${colorizeColor.value.slice(1)},e_colorize:${colorizeLevel.value}` : '',
+      blur: blur.value ? `e_blur:${blur.value}` : '',
+      sepia: sepia.value ? `e_sepia:${sepia.value}` : '',
+      oilPaint: oilPaint.value ? `e_oil_paint:${oilPaint.value}` : '',
+      colorBlind: colorblind.value ? `e_simulate_colorblind:${colorblind.value}` : '',
+      pixelate: pixelate.value ? `e_pixelate:${pixelate.value}` : '',
+      format: format.value ? `f_${format.value}` : '',
+      quality: quality.value ? `q_${quality.value}` : ''
+    })
   }
 
   return (
@@ -55,12 +71,10 @@ function EditorPage () {
         </section>
         <section className='absolute bottom-8 right-8 bg-slate-700 flex flex-col gap-7 items-center justify-center p-4 rounded-2xl shadow-2xl'>
 
-          {/* FORMULARIO PARA EL RESIZE */}
-          <ResizeForm handleResize={handleResize} resizing={resizing} />
-          {/* FORMULARIO PARA EL IMPROVE */}
-          <ImproveForm handleImprove={handleImprove} improve={improve} />
-          {/* FORMULARIO PARA EL IMPROVE */}
-          <SaturationForm handleSaturation={handleSaturation} saturation={saturation} />
+          <AdjustForm
+            adjusts={adjusts}
+            handleAdjusts={handleAdjusts}
+          />
 
         </section>
       </main>
