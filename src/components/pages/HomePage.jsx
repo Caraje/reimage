@@ -7,12 +7,13 @@ import 'dropzone/dist/dropzone.css'
 import CardInfo from '../Home/CardInfo'
 
 function HomePage () {
-  const test = () => {
+  const uploadImage = () => {
     const dropzone = new Dropzone('#dropzone', {
       uploadMultiple: false,
       acceptedFiles: '.jpg, .jpeg, .png, .webp',
       maxFiles: 1
     })
+
     dropzone.on('sending', (file, xhr, formData) => {
       formData.append('file', file)
       formData.append('upload_preset', 'zeu823b9')
@@ -53,13 +54,12 @@ function HomePage () {
         <div className='bg-slate-100 w-96  aspect-video rounded-lg p-2 '>
           <form
             id='dropzone'
-            onDragEnter={test}
+            onDragEnter={uploadImage}
             action='https://api.cloudinary.com/v1_1/caraje/image/upload'
             className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'
           >
-
-            <button type='button'>
-              <input className='hidden' type='file' visbility='hidden' id='file' />
+            <input className='hidden' type='file' visbility='hidden' id='myFileInput' />
+            <button disabled>
               <img
                 src='./static_img/img_Icon.svg'
                 alt='Icono de imagenes'
