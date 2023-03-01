@@ -21,12 +21,11 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
         className='flex flex-col items-center w-80 gap-3'
       >
         <div className=' flex flex-col items-start gap-3 w-full '>
-          <div className='flex  w-full'>
+          <div onClick={OpenDimensionsMenu} className='flex  w-full hover:cursor-pointer'>
 
             <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Dimensions</h3>
             <button
               className=' w-1/6  text-slate-900 p-1 rounded-lg'
-              onClick={OpenDimensionsMenu}
             >{!isDimensionsOpen
               ? <img className='w-4 ' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
               : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
@@ -54,11 +53,10 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
 
         </div>
         <div className='flex flex-col items-start gap-3 w-full '>
-          <div className='flex w-full'>
+          <div onClick={OpenAdjustMenu} className='flex w-full hover:cursor-pointer'>
             <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Adjusts</h3>
             <button
               className=' w-1/6  text-slate-900 p-1 rounded-lg'
-              onClick={OpenAdjustMenu}
             >{!isAdjustOpen
               ? <img className='w-4' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
               : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
@@ -120,11 +118,10 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
 
         </div>
         <div className='flex flex-col items-start gap-3 w-full'>
-          <div className='flex w-full'>
+          <div onClick={OpenEffectsMenu} className='flex w-full hover:cursor-pointer'>
             <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Effects</h3>
             <button
               className=' w-1/6 text-slate-900 p-1 rounded-lg'
-              onClick={OpenEffectsMenu}
             >{!isEffectsOpen
               ? <img className='w-4' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
               : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
