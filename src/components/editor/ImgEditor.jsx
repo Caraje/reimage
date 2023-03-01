@@ -11,7 +11,6 @@ const ImgEditor = ({ img, editedImg, setError }) => {
 
           <img src={img} className='h-full w-full  object-contain object-center' />
         </div>
-        <img src={editedImg} className='max-h-[50rem] max-w-[70rem] object-fill object-center' />
         <div className='max-h-[50rem] max-w-[70rem]'>
           <img
             src={editedImg}
