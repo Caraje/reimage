@@ -16,7 +16,7 @@ function HomePage () {
 
     dropzone.on('sending', (file, xhr, formData) => {
       formData.append('file', file)
-      formData.append('upload_preset', 'zeu823b9')
+      formData.append('upload_preset', 'Reimage')
       formData.append('timestamp', (Date.now() / 1000))
       formData.append('api_key', '874151438335991')
     })
