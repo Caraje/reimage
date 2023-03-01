@@ -1,4 +1,3 @@
-import React from 'react'
 import 'two-up-element'
 
 const ImgEditor = ({ img, editedImg }) => {
@@ -9,10 +8,12 @@ const ImgEditor = ({ img, editedImg }) => {
 
           <img src={img} className='h-full w-full  object-contain object-center' />
         </div>
-        {/* <img src={editedImg} className='max-h-[50rem] max-w-[70rem] object-fill object-center' /> */}
+        <img src={editedImg} className='max-h-[50rem] max-w-[70rem] object-fill object-center' />
         <div className='max-h-[50rem] max-w-[70rem]'>
-
-          <img src={editedImg} className='h-full w-full object-contain object-center' />
+          <img
+            src={editedImg}
+            className='h-full w-full object-contain object-center'
+          />
         </div>
       </two-up>
     </>
