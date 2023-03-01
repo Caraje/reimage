@@ -12,6 +12,7 @@ function EditorPage () {
   const IMG_DATA = `v${image.version}/${image.public_id}`
 
   const [editedImg, setEditedImg] = useState(originalImg)
+  const [error, setError] = useState(false)
   const [adjusts, setAdjusts] = useState({
     remove: '',
     fill: `c_limit,h_${image.height},w_${image.width}`,
@@ -67,7 +68,7 @@ function EditorPage () {
       <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
         <section className={`flex justify-center items-center w-[${image.width}px] max-h-[${image.height}px] bg-gray-700/50 rounded-3xl border-2 border-[#fbed21] p-4`}>
           {
-            image ? <ImgEditor img={originalImg} editedImg={editedImg} /> : <h2>No hay imagen disponible</h2>
+            image ? <ImgEditor img={originalImg} editedImg={editedImg} setError={setError} /> : <h2>No hay imagen disponible</h2>
           }
         </section>
 
@@ -79,6 +80,14 @@ function EditorPage () {
           />
 
         </section>
+        {
+          error && (
+            <div className='absolute top-12 bg-amber-500 text-slate-800 py-2 px-4 rounded-lg'>
+              <p className='text-center'>Se ha producido un error al usar Remove Background </p>
+              <p className='text-center'>Por favor, recargue la pagina y vuelva a intentarlo </p>
+            </div>
+          )
+        }
       </main>
       <footer className='bg-[#fbed21] h-12 flex flex-col items-center justify-center'>
         <p className='text-black text-center'>App creada por <a href='https://www.carlosajenjo.es/' target='_blank' rel='noreferrer'>Carlos Ajenjo </a></p>
