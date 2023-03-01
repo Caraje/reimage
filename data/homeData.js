@@ -2,21 +2,20 @@
 export const homeData = [
   {
     id: '01',
-    title: 'Mejore sus Imagenes',
-    text: 'Abre tu imagen y prueba los diferentes ajustes que te ofrecemos para mejorar los colores, el contraste o el brillo de tus fotos.',
+    title: 'Improve your images',
+    text: 'Open your image and try out the different settings we offer to enhance the colors, contrast, or brightness of your photos.',
     img: './static_img/colors_img.webp'
   },
   {
     id: '02',
-    title: 'Ajuste el tamaño',
-    text: 'Pruebe a usar las opciones para escalar o ajustar sus imagenes, para que siempre tengan el tamaño y las proporciones correctas.',
+    title: 'Resize your images',
+    text: 'Try using the options to resize or adjust your images, so they always have the correct size and proportions.',
     img: './static_img/scale_img.webp'
   },
   {
     id: '03',
-    title: 'Elimine los fondos',
-    text: 'Seleccione una foto para poder eliminar el fondo por completo de manera sencilla y rapida, para poder usarla en sus proyectos.',
+    title: 'Remove backgrounds',
+    text: 'Select a photo to easily and quickly remove the background completely, so you can use it in your projects.',
     img: './static_img/bg.webp'
   }
 ]
-//
