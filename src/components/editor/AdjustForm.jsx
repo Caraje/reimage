@@ -27,7 +27,9 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
             <button
               className=' w-1/6  text-slate-900 p-1 rounded-lg'
               onClick={OpenDimensionsMenu}
-            >{!isDimensionsOpen ? '🔼' : '🔽'}
+            >{!isDimensionsOpen
+              ? <img className='w-4 ' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
+              : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
             </button>
           </div>
           <div className={`w-full flex flex-col gap-4 ${!isDimensionsOpen ? 'hidden' : ''}`}>
@@ -57,7 +59,9 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
             <button
               className=' w-1/6  text-slate-900 p-1 rounded-lg'
               onClick={OpenAdjustMenu}
-            >{!isAdjustOpen ? '🔼' : '🔽'}
+            >{!isAdjustOpen
+              ? <img className='w-4' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
+              : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
             </button>
           </div>
           <div className={`w-full flex flex-col gap-4 ${!isAdjustOpen ? 'hidden' : ''}`}>
@@ -121,7 +125,9 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
             <button
               className=' w-1/6 text-slate-900 p-1 rounded-lg'
               onClick={OpenEffectsMenu}
-            >{!isEffectsOpen ? '🔼' : '🔽'}
+            >{!isEffectsOpen
+              ? <img className='w-4' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
+              : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
             </button>
           </div>
           <div className={`w-full flex flex-col gap-4 ${!isEffectsOpen ? 'hidden' : ''}`}>
@@ -264,8 +270,23 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
           </div>
         </div>
         <div className=' flex gap-3 w-full mt-2'>
-          <button className='w-full bg-[#fbed21] text-slate-900 p-1 rounded-lg'>Apply</button>
-          <button type='reset' className='w-full bg-[#fbed21] text-slate-900 p-1 rounded-lg'>reset</button>
+          <button
+            className='
+              w-full bg-[#fbed21] text-slate-900 p-1 rounded-lg font-bold
+              hover:scale-105 hover:brightness-200 hover:shadow-2xl ease-in-out duration-300
+            '
+          >
+            Apply
+          </button>
+          <button
+            type='reset'
+            className='
+              w-full bg-[#fbed21] text-slate-900 p-1 rounded-lg font-bold
+              hover:scale-105 hover:brightness-200 hover:shadow-2xl ease-in-out duration-300
+            '
+          >
+            reset
+          </button>
 
         </div>
       </form>
