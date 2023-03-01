@@ -125,7 +125,15 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
             </button>
           </div>
           <div className={`w-full ${!isEffectsOpen ? 'hidden' : ''}`}>
-            <div className='flex gap-9 items-start'>
+            <div className='flex flex-col gap-2s items-start '>
+              <label className='flex items-center gap-4 font-bold text-lg w-full'>
+                Remove Background:
+                <input
+                  className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4 '
+                  name='remove'
+                  type='checkbox'
+                />
+              </label>
               <label className='flex items-center gap-4 font-bold text-lg w-full'>
                 Grayscale:
                 <input
