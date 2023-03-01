@@ -72,8 +72,6 @@ function HomePage () {
         </div>
       </main>
 
-      {/* SEPARACION DE SECCIONES  */}
-
       <section className='mt-16 mx-auto flex flex-col flex-wrap gap-48 max-w-7xl mb-10'>
         {
           homeData.map(el => (
@@ -89,21 +87,10 @@ function HomePage () {
 
       </section>
 
-      {/* SEPARACION DE SECCIONES  */}
-
       <footer className='bg-[#fbed21] h-12 flex flex-col items-center justify-center'>
         <p className='text-black text-center'>App creada por <a href='https://www.carlosajenjo.es/' target='_blank' rel='noreferrer'>Carlos Ajenjo </a></p>
       </footer>
 
-      {/* <Link
-        className='
-          absolute top-5 left-5 bg-[#fbed21] w-10 h-10 pt-1 rounded-3xl text-center text-black text-2xl font-bold transition-all
-          hover:bg-[#fff27b] hover:scale-125
-          '
-        to='/editor'
-      >
-        X
-      </Link> */}
     </>
   )
 }
