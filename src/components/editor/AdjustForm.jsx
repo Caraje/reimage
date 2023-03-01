@@ -18,19 +18,19 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
     <>
       <form
         onSubmit={handleAdjusts}
-        className='flex flex-col items-center w-80 gap-1'
+        className='flex flex-col items-center w-80 gap-3'
       >
-        <div className=' flex flex-col items-start gap-1 w-full '>
-          <div className='flex w-full'>
+        <div className=' flex flex-col items-start gap-3 w-full '>
+          <div className='flex  w-full'>
 
             <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Dimensions</h3>
             <button
-              className=' w-1/6 bg-[#fbed21] text-slate-900 p-1 rounded-lg'
+              className=' w-1/6  text-slate-900 p-1 rounded-lg'
               onClick={OpenDimensionsMenu}
-            >{!isDimensionsOpen ? 'Abrir' : 'Cerrar'}
+            >{!isDimensionsOpen ? '🔼' : '🔽'}
             </button>
           </div>
-          <div className={`w-full ${!isDimensionsOpen ? 'hidden' : ''}`}>
+          <div className={`w-full flex flex-col gap-4 ${!isDimensionsOpen ? 'hidden' : ''}`}>
 
             <label className='flex flex-col font-bold text-xs w-full'>
               width:
@@ -51,16 +51,16 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
           </div>
 
         </div>
-        <div className='flex flex-col items-start gap-1 w-full '>
+        <div className='flex flex-col items-start gap-3 w-full '>
           <div className='flex w-full'>
             <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Adjusts</h3>
             <button
-              className=' w-1/6 bg-[#fbed21] text-slate-900 p-1 rounded-lg'
+              className=' w-1/6  text-slate-900 p-1 rounded-lg'
               onClick={OpenAdjustMenu}
-            >{!isAdjustOpen ? 'Abrir' : 'Cerrar'}
+            >{!isAdjustOpen ? '🔼' : '🔽'}
             </button>
           </div>
-          <div className={`w-full ${!isAdjustOpen ? 'hidden' : ''}`}>
+          <div className={`w-full flex flex-col gap-4 ${!isAdjustOpen ? 'hidden' : ''}`}>
 
             <label className='flex flex-col font-bold text-xs w-full'>
               Improve:
@@ -115,42 +115,17 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
           </div>
 
         </div>
-        <div className='flex flex-col items-start gap-1 w-full'>
+        <div className='flex flex-col items-start gap-3 w-full'>
           <div className='flex w-full'>
             <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Effects</h3>
             <button
-              className=' w-1/6 bg-[#fbed21] text-slate-900 p-1 rounded-lg'
+              className=' w-1/6 text-slate-900 p-1 rounded-lg'
               onClick={OpenEffectsMenu}
-            >{!isEffectsOpen ? 'Abrir' : 'Cerrar'}
+            >{!isEffectsOpen ? '🔼' : '🔽'}
             </button>
           </div>
-          <div className={`w-full ${!isEffectsOpen ? 'hidden' : ''}`}>
-            <div className='flex flex-col gap-2s items-start '>
-              <label className='flex items-center gap-4 font-bold text-lg w-full'>
-                Remove Background:
-                <input
-                  className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4 '
-                  name='remove'
-                  type='checkbox'
-                />
-              </label>
-              <label className='flex items-center gap-4 font-bold text-lg w-full'>
-                Grayscale:
-                <input
-                  className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4'
-                  name='grayscale'
-                  type='checkbox'
-                />
-              </label>
-              <label className='flex items-center gap-4 font-bold text-lg w-full'>
-                Negative:
-                <input
-                  className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4'
-                  name='negative'
-                  type='checkbox'
-                />
-              </label>
-            </div>
+          <div className={`w-full flex flex-col gap-4 ${!isEffectsOpen ? 'hidden' : ''}`}>
+
             <label className='flex flex-col font-bold text-xs w-full'>
               Blur:
               <input
@@ -194,7 +169,7 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
             <label className='flex flex-col font-bold text-xs w-full'>
               Colorize:
               <div
-                className=' flex gap-1'
+                className=' flex gap-3'
               >
 
                 <input
@@ -260,6 +235,32 @@ const AdjustForm = ({ adjusts, handleAdjusts }) => {
                 <option value='50'>50</option>
               </select>
             </label>
+            <div className='flex flex-col gap-2s items-start '>
+              <label className='flex items-center gap-4 font-bold text-lg w-full'>
+                Remove Background:
+                <input
+                  className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4 '
+                  name='remove'
+                  type='checkbox'
+                />
+              </label>
+              <label className='flex items-center gap-4 font-bold text-lg w-full'>
+                Grayscale:
+                <input
+                  className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4'
+                  name='grayscale'
+                  type='checkbox'
+                />
+              </label>
+              <label className='flex items-center gap-4 font-bold text-lg w-full'>
+                Negative:
+                <input
+                  className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4'
+                  name='negative'
+                  type='checkbox'
+                />
+              </label>
+            </div>
           </div>
         </div>
         <div className=' flex gap-3 w-full mt-2'>
