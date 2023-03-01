@@ -82,9 +82,13 @@ function EditorPage () {
         </section>
         {
           error && (
-            <div className='absolute top-12 bg-amber-500 text-slate-800 py-2 px-4 rounded-lg'>
-              <p className='text-center'>Se ha producido un error al usar Remove Background </p>
-              <p className='text-center'>Por favor, recargue la pagina y vuelva a intentarlo </p>
+            <div className='absolute flex gap-4 top-12 bg-amber-500 text-slate-800 py-2 px-4 rounded-lg shadow-lg'>
+              <img className='w-10' src='./static_img/icons/iconAdvertice.svg' alt='icon advertice' />
+              <div>
+
+                <p className='text-center'>An error occurred while using Remove Background</p>
+                <p className='text-center'>Please refresh the page and try again.</p>
+              </div>
             </div>
           )
         }
@@ -94,8 +98,8 @@ function EditorPage () {
       </footer>
       <Link
         className='
-          absolute top-5 left-5 bg-[#fbed21] w-10 h-10 pt-1 rounded-3xl text-center text-black text-2xl font-bold transition-all
-          hover:bg-[#fff27b] hover:scale-125
+          absolute top-5 left-5 bg-[#fbed21] w-10 h-10 pt-1 rounded-3xl text-center text-black text-2xl font-extrabold
+          hover:scale-150 hover:brightness-150 hover:shadow-2xl ease-in-out duration-300
           '
         to='/'
       >
