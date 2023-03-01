@@ -9,14 +9,15 @@ function EditorPage () {
   const originalImg = image.url
 
   const BASE_URL = 'https://res.cloudinary.com/caraje/image/upload/'
-  const IMG_DATA = `v${image.version}/${image.public_id}.${image.format}`
+  const IMG_DATA = `v${image.version}/${image.public_id}`
 
   const [editedImg, setEditedImg] = useState(originalImg)
   const [adjusts, setAdjusts] = useState({
+    remove: '',
     fill: `c_limit,h_${image.height},w_${image.width}`,
     grayscale: '',
     negative: '',
-    format: '',
+    format: 'f_png',
     quality: '',
     improve: '',
     saturation: '',
@@ -30,21 +31,21 @@ function EditorPage () {
     colorBlind: '',
     pixelate: ''
   })
-  // console.log({ editedImg })
 
   useEffect(() => {
-    setEditedImg(`${BASE_URL}${Object.values(adjusts).filter(adj => adj).join('/')}/${IMG_DATA}`)
-    // console.log({ editedImg })
+    setEditedImg(`${BASE_URL}${Object.values(adjusts).filter(adj => adj).join('/')}/${IMG_DATA}.${image.format}`)
   }, [adjusts])
 
   const handleAdjusts = (event) => {
     event.preventDefault()
 
-    const { height, width, grayscale, negative, format, quality, improve, saturation, constrast, brightness, gamma, colorizeLevel, colorizeColor, blur, sepia, oilPaint, colorblind, pixelate } = event.target
+    const { height, width, grayscale, negative, format, quality, improve, saturation, constrast, brightness, gamma, colorizeLevel, colorizeColor, blur, sepia, oilPaint, colorblind, pixelate, remove } = event.target
+
     setAdjusts({
-      fill: `c_limit,h_${height.value ? height.value : image.height},w_${width.value ? width.value : image.height}`,
+      remove: remove.checked && 'e_background_removal',
       grayscale: grayscale.checked && 'e_grayscale',
       negative: negative.checked && 'e_negate',
+      fill: `c_limit,h_${height.value ? height.value : image.height},w_${width.value ? width.value : image.height}`,
       improve: improve.value ? `e_improve:${improve.value}` : '',
       saturation: saturation.value ? `e_saturation:${saturation.value}` : '',
       constrast: constrast.value ? `e_contrast:${constrast.value}` : '',
@@ -56,7 +57,7 @@ function EditorPage () {
       oilPaint: oilPaint.value ? `e_oil_paint:${oilPaint.value}` : '',
       colorBlind: colorblind.value ? `e_simulate_colorblind:${colorblind.value}` : '',
       pixelate: pixelate.value ? `e_pixelate:${pixelate.value}` : '',
-      format: format.value ? `f_${format.value}` : '',
+      format: format.value ? `f_${format.value}` : 'f_png',
       quality: quality.value ? `q_${quality.value}` : ''
     })
   }
@@ -69,6 +70,7 @@ function EditorPage () {
             image ? <ImgEditor img={originalImg} editedImg={editedImg} /> : <h2>No hay imagen disponible</h2>
           }
         </section>
+
         <section className='absolute bottom-8 right-8 bg-slate-700 flex flex-col gap-7 items-center justify-center p-4 rounded-2xl shadow-2xl'>
 
           <AdjustForm
