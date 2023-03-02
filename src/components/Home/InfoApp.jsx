@@ -4,7 +4,7 @@ import CardInfo from './CardInfo'
 
 const InfoApp = () => {
   return (
-    <section className='mt-16 mx-auto flex flex-col flex-wrap gap-48 max-w-7xl mb-10'>
+    <section className='my-24  mx-auto flex flex-col flex-wrap gap-20 max-w-7xl mb-10'>
       {
       homeData.map(el => (
         <CardInfo
