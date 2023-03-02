@@ -15,7 +15,7 @@ const FormImage = () => {
       <div className='bg-slate-100 w-96  aspect-video rounded-lg p-2 '>
         <div className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'>
 
-          <Dropzone onDrop={(files) => { dropzone(files) }}>
+          <Dropzone onDrop={(files) => { dropzone(files) }} multiple={false}>
             {({ getRootProps, getInputProps }) => (
               <section>
                 <div {...getRootProps()}>
