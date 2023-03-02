@@ -25,7 +25,6 @@ export async function dropzone (files) {
     window.sessionStorage.setItem('image', JSON.stringify(image))
     window.location.replace('/editor')
   } catch (error) {
-    console.log('Ha ido Mal')
     console.log(error)
   }
 }
