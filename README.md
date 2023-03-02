@@ -3,7 +3,7 @@
 Puedes probar la app  ** [aquì](https://reimage.vercel.app/) **.
 
 
-![Preview](https://res.cloudinary.com/caraje/image/upload/v1675359876/kxjbobzdfpibqljp56yb.webp)
+![Preview](https://res.cloudinary.com/caraje/image/upload/c_limit,h_814,w_2072/f_png/v1677784736/ReImage/t682jt9sqsbvgs74gejo.webp)
 
 ## 🚀 Descripción
 
