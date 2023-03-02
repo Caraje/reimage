@@ -1,5 +1,6 @@
 import React from 'react'
-import { dropzone } from '../../services/dropzone'
+import Dropzone from 'react-dropzone'
+import { dropzone } from '../../services/react-dropzone'
 
 const FormImage = () => {
   return (
@@ -12,23 +13,28 @@ const FormImage = () => {
         height={126}
       />
       <div className='bg-slate-100 w-96  aspect-video rounded-lg p-2 '>
-        <form
-          id='dropzone'
-          onDragEnter={dropzone}
-          action='https://api.cloudinary.com/v1_1/caraje/image/upload'
-          className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'
-        >
-          <input className='hidden' type='file' visbility='hidden' id='myFileInput' />
-          <button disabled>
-            <img
-              src='./static_img/img_Icon.svg'
-              alt='Icono de imagenes'
-              width={75}
-              height={75}
-            />
-            <h2 className='text-gray-900 font-semibold text-xl flex flex-col text-center'>Drop your <span>Image</span></h2>
-          </button>
-        </form>
+        <div className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'>
+
+          <Dropzone onDrop={(files) => { dropzone(files) }}>
+            {({ getRootProps, getInputProps }) => (
+              <section>
+                <div {...getRootProps()}>
+                  <input {...getInputProps()} />
+                  <div className='flex flex-col justify-center items-center gap-4'>
+                    <img
+                      src='./static_img/img_Icon.svg'
+                      alt='Icono de imagenes'
+                      width={75}
+                      height={75}
+                    />
+                    <h2 className='text-gray-900 font-semibold text-xl flex flex-col text-center'>Select Yout image or<span>Drop your Image</span></h2>
+                  </div>
+                </div>
+              </section>
+            )}
+          </Dropzone>
+        </div>
+
       </div>
     </main>
   )
