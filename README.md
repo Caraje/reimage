@@ -38,4 +38,6 @@ La [App](https://reimage.vercel.app/) esta desplegada usando los servicios de Ve
 *	Tras descargar el repositorio haz la instalación de los paquetes necesarios con `pnpm Install`.
 *	Debes crear una cuenta en [Cloudinary](https://cloudinary.com/) para adquirir una key valida para poder usar los servicios 
 *	Toquetea todo lo que quieras y disfruta de la experiencia.
+* Crear un archivo .env con las propiedades `VITE_APIKEY_CLOUDINARY` y `VITE_NAME_CLOUD_CLOUDINARY` y los correspondientes datos de Cloudinary.
+
 
