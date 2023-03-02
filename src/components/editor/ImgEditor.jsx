@@ -1,9 +1,6 @@
 import 'two-up-element'
 
 const ImgEditor = ({ img, editedImg, setError }) => {
-  const handleError = () => {
-    setError(true)
-  }
   return (
     <>
       <two-up className='flex justify-center items-center'>
@@ -14,7 +11,7 @@ const ImgEditor = ({ img, editedImg, setError }) => {
         <div className='max-h-[50rem] max-w-[70rem]'>
           <img
             src={editedImg}
-            onError={handleError}
+            onError={() => { setError(true) }}
             className='h-full w-full object-contain object-center'
           />
         </div>
