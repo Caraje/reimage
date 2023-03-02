@@ -1,45 +1,10 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import { homeData } from '../../../data/homeData'
-
-import Dropzone from 'dropzone'
-import 'dropzone/dist/dropzone.css'
+import { dropzone } from '../../services/dropzone'
 import CardInfo from '../Home/CardInfo'
+import FooterWeb from '../UI/FooterWeb'
 
 function HomePage () {
-  const uploadImage = () => {
-    const dropzone = new Dropzone('#dropzone', {
-      uploadMultiple: false,
-      acceptedFiles: '.jpg, .jpeg, .png, .webp',
-      maxFiles: 1
-    })
-
-    dropzone.on('sending', (file, xhr, formData) => {
-      formData.append('file', file)
-      formData.append('upload_preset', 'Reimage')
-      formData.append('timestamp', (Date.now() / 1000))
-      formData.append('api_key', '874151438335991')
-    })
-
-    dropzone.on('success', (file, response) => {
-      const image = {
-        url: response.url,
-        height: response.height,
-        width: response.width,
-        format: response.format,
-        public_id: response.public_id,
-        created_at: response.created_at,
-        bytes: response.bytes,
-        version: response.version
-      }
-      window.sessionStorage.setItem('image', JSON.stringify(image))
-      window.location.replace('/editor')
-    })
-    dropzone.on('error', (file, response) => {
-      console.log('Ha ido Mal')
-      console.log(response)
-    })
-  }
   return (
     <>
       <main className=' flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
@@ -50,11 +15,10 @@ function HomePage () {
           width={548}
           height={126}
         />
-        {/* <h1>Edita tus imagenes</h1> */}
         <div className='bg-slate-100 w-96  aspect-video rounded-lg p-2 '>
           <form
             id='dropzone'
-            onDragEnter={uploadImage}
+            onDragEnter={dropzone}
             action='https://api.cloudinary.com/v1_1/caraje/image/upload'
             className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'
           >
@@ -87,9 +51,7 @@ function HomePage () {
 
       </section>
 
-      <footer className='bg-[#fbed21] h-12 flex flex-col items-center justify-center'>
-        <p className='text-black text-center'>App creada por <a href='https://www.carlosajenjo.es/' target='_blank' rel='noreferrer'>Carlos Ajenjo </a></p>
-      </footer>
+      <FooterWeb />
 
     </>
   )
