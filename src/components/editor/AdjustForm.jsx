@@ -5,14 +5,14 @@ import EffectsForm from '../forms/EffectsForm'
 import OptionsForm from '../forms/OptionsForm'
 import ButtonsForm from './ButtonsForm'
 
-const AdjustForm = ({ handleAdjusts, image, name }) => {
+const AdjustForm = ({ handleAdjusts, image, name, size }) => {
   return (
     <>
       <form
         onSubmit={handleAdjusts}
         className='flex flex-col items-center w-80 gap-3'
       >
-        <DimensionsForm />
+        <DimensionsForm size={size} />
         <AdjustsFormComponent />
         <EffectsForm />
         <OptionsForm />

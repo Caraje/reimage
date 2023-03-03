@@ -5,11 +5,9 @@ const EffectsForm = () => {
 
   return (
     <div className='flex flex-col items-start gap-3 w-full'>
-      <div onClick={() => { setIsEffectsOpen(!isEffectsOpen) }} className='flex w-full hover:cursor-pointer'>
+      <div onClick={() => { setIsEffectsOpen(!isEffectsOpen) }} className='flex w-full justify-between   hover:cursor-pointer'>
         <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Effects</h3>
-        <button
-          className=' w-1/6 text-slate-900 p-1 rounded-lg'
-        >{!isEffectsOpen
+        <button>{!isEffectsOpen
           ? <img className='w-4' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
           : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
         </button>
@@ -24,6 +22,7 @@ const EffectsForm = () => {
             type='number'
             min={1}
             max={2000}
+            placeholder='1 to 2000'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -34,6 +33,7 @@ const EffectsForm = () => {
             type='number'
             min={1}
             max={100}
+            placeholder='1 to 100'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -44,6 +44,7 @@ const EffectsForm = () => {
             type='number'
             min={1}
             max={100}
+            placeholder='1 to 100'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -54,6 +55,7 @@ const EffectsForm = () => {
             type='number'
             min={1}
             max={200}
+            placeholder='1 to 200'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -68,6 +70,7 @@ const EffectsForm = () => {
               type='number'
               min={1}
               max={100}
+              placeholder='1 to 100'
             />
             <input
               className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl w-1/5'

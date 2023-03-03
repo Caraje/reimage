@@ -5,11 +5,9 @@ const OptionsForm = () => {
 
   return (
     <div className='flex flex-col items-start gap-3 w-full'>
-      <div onClick={() => { setIsOptionsOpen(!isOptionsOpen) }} className='flex w-full hover:cursor-pointer'>
+      <div onClick={() => { setIsOptionsOpen(!isOptionsOpen) }} className='flex w-full justify-between  hover:cursor-pointer'>
         <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Options</h3>
-        <button
-          className=' w-1/6 text-slate-900 p-1 rounded-lg'
-        >{!isOptionsOpen
+        <button>{!isOptionsOpen
           ? <img className='w-4' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
           : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
         </button>
@@ -26,7 +24,7 @@ const OptionsForm = () => {
           >
             <option value=''>None</option>
             <option value='jpg'>JPG</option>
-            <option value='png'>PNG</option>
+            <option value='png' selected>PNG</option>
             <option value='webp'>WEBP</option>
             <option value='bmp'>BMP</option>
             <option value='jxr'>JPEG XR</option>

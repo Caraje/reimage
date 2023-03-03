@@ -46,6 +46,7 @@ function EditorPage () {
           handleAdjusts={handleAdjusts}
           image={editedImg}
           name={image.public_id}
+          size={image}
         />
 
         {

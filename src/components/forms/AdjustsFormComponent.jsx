@@ -5,11 +5,9 @@ const AdjustsFormComponent = () => {
 
   return (
     <div className='flex flex-col items-start gap-3 w-full '>
-      <div onClick={() => { setIsAdjustOpen(!isAdjustOpen) }} className='flex w-full hover:cursor-pointer'>
+      <div onClick={() => { setIsAdjustOpen(!isAdjustOpen) }} className='flex w-full justify-between   hover:cursor-pointer'>
         <h3 className='w-5/6 text-2xl text-[#fbed21] font-extrabold'>Adjusts</h3>
-        <button
-          className=' w-1/6  text-slate-900 p-1 rounded-lg'
-        >{!isAdjustOpen
+        <button>{!isAdjustOpen
           ? <img className='w-4' src='./static_img/icons/iconUp.svg' alt='Icon arrow up' />
           : <img className='w-4' src='./static_img/icons/iconDown.svg' alt='Icon arrow down' />}
         </button>
@@ -24,6 +22,7 @@ const AdjustsFormComponent = () => {
             type='number'
             min={0}
             max={100}
+            placeholder='0 to 100'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -34,6 +33,7 @@ const AdjustsFormComponent = () => {
             type='number'
             min={-100}
             max={100}
+            placeholder='-100 to 100'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -44,6 +44,7 @@ const AdjustsFormComponent = () => {
             type='number'
             min={-100}
             max={100}
+            placeholder='-100 to 100'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -54,6 +55,7 @@ const AdjustsFormComponent = () => {
             type='number'
             min={-99}
             max={100}
+            placeholder='-99 to 100'
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
@@ -64,6 +66,7 @@ const AdjustsFormComponent = () => {
             type='number'
             min={-100}
             max={100}
+            placeholder='-100 to 100'
           />
         </label>
       </div>
