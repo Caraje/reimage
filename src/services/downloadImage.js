@@ -1,7 +1,6 @@
 export async function downloadImage (image, name) {
   await fetch(image)
     .then((response) => {
-      console.log({ response })
       return response.blob()
     })
     .then((blob) => {
