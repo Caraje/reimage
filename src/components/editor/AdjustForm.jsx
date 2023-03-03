@@ -5,7 +5,7 @@ import EffectsForm from '../forms/EffectsForm'
 import OptionsForm from '../forms/OptionsForm'
 import ButtonsForm from './ButtonsForm'
 
-const AdjustForm = ({ handleAdjusts }) => {
+const AdjustForm = ({ handleAdjusts, image, name }) => {
   return (
     <>
       <form
@@ -16,7 +16,7 @@ const AdjustForm = ({ handleAdjusts }) => {
         <AdjustsFormComponent />
         <EffectsForm />
         <OptionsForm />
-        <ButtonsForm />
+        <ButtonsForm image={image} name={name} />
       </form>
 
     </>

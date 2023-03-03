@@ -42,6 +42,8 @@ function EditorPage () {
         <FormAdjusts
           adjusts={adjusts}
           handleAdjusts={handleAdjusts}
+          image={editedImg}
+          name={image.public_id}
         />
 
         {
