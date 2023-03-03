@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { addAdjusts } from '../../handles/addAdjusts'
+import DisabledAdvertice from '../editor/DisabledAdvertice'
 import EditorCanvas from '../editor/EditorCanvas'
 import ErrorAdvertice from '../editor/ErrorAdvertice'
 import FormAdjusts from '../editor/FormAdjusts'
@@ -7,6 +8,7 @@ import ButtonBack from '../UI/ButtonBack'
 import FooterWeb from '../UI/FooterWeb'
 
 function EditorPage () {
+  const disabled = true
   const image = JSON.parse(window.sessionStorage.getItem('image'))
   const originalImg = image.url
   const [editedImg, setEditedImg] = useState(originalImg)
@@ -48,6 +50,9 @@ function EditorPage () {
 
         {
           error && <ErrorAdvertice />
+        }
+        {
+          disabled && <DisabledAdvertice />
         }
       </main>
 
