@@ -26,6 +26,17 @@ const EffectsForm = () => {
           />
         </label>
         <label className='flex flex-col font-bold text-xs w-full'>
+          Sharpen:
+          <input
+            className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4'
+            name='sharpen'
+            type='number'
+            min={1}
+            max={2000}
+            placeholder='1 to 2000'
+          />
+        </label>
+        <label className='flex flex-col font-bold text-xs w-full'>
           Sepia:
           <input
             className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4'

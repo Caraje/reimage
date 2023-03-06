@@ -1,5 +1,6 @@
 export function addAdjusts (event, setAdjusts, image) {
-  const { height, width, grayscale, negative, format, quality, improve, saturation, constrast, brightness, gamma, colorizeLevel, colorizeColor, blur, sepia, oilPaint, colorblind, pixelate, remove } = event.target
+  const { height, width, grayscale, negative, format, quality, improve, saturation, constrast, brightness, gamma, colorizeLevel, colorizeColor, blur, sharpen, sepia, oilPaint, colorblind, pixelate, remove } = event.target
+  console.log(sharpen.value)
 
   setAdjusts({
     remove: remove.checked && 'e_background_removal',
@@ -13,6 +14,7 @@ export function addAdjusts (event, setAdjusts, image) {
     gamma: gamma.value ? `e_gamma:${gamma.value}` : '',
     colorize: colorizeLevel.value ? `co_rgb:${colorizeColor.value.slice(1)},e_colorize:${colorizeLevel.value}` : '',
     blur: blur.value ? `e_blur:${blur.value}` : '',
+    sharpen: sharpen.value ? `e_unsharp_mask:${sharpen.value}` : '',
     sepia: sepia.value ? `e_sepia:${sepia.value}` : '',
     oilPaint: oilPaint.value ? `e_oil_paint:${oilPaint.value}` : '',
     colorBlind: colorblind.value ? `e_simulate_colorblind:${colorblind.value}` : '',
