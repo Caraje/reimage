@@ -5,18 +5,18 @@ import EffectsForm from '../forms/EffectsForm'
 import OptionsForm from '../forms/OptionsForm'
 import ButtonsForm from './ButtonsForm'
 
-const AdjustForm = ({ handleAdjusts, image, name, size }) => {
+const AdjustForm = ({ handleAdjusts, image, name, size, setIsVisible }) => {
   return (
     <>
       <form
         onSubmit={handleAdjusts}
-        className='flex flex-col items-center w-80 gap-3'
+        className='max-h-[90vh] w-72 overflow-y-scroll flex flex-col items-center gap-3 p-2'
       >
         <DimensionsForm size={size} />
         <AdjustsFormComponent />
         <EffectsForm />
         <OptionsForm />
-        <ButtonsForm image={image} name={name} />
+        <ButtonsForm image={image} name={name} setIsVisible={setIsVisible} />
       </form>
 
     </>
