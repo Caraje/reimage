@@ -4,11 +4,11 @@ const ImgEditor = ({ img, editedImg, setError }) => {
   return (
     <>
       <two-up className='flex justify-center items-center'>
-        <div className='max-h-[50rem] max-w-[70rem]'>
+        <div>
 
           <img src={img} className='h-full w-full  object-contain object-center' />
         </div>
-        <div className='max-h-[50rem] max-w-[70rem]'>
+        <div>
           <img
             src={editedImg}
             onError={() => { setError(true) }}
