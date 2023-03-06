@@ -4,7 +4,7 @@ import { dropzone } from '../../services/react-dropzone'
 
 const FormImage = () => {
   return (
-    <main className=' flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
+    <main className=' flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] p-4 '>
       <img
         className='w-96'
         src='./static_img/logo.webp'
@@ -12,7 +12,7 @@ const FormImage = () => {
         width={548}
         height={126}
       />
-      <div className='bg-slate-100 w-96  aspect-video rounded-lg p-2 '>
+      <div className='bg-slate-100 w-[90vw] md:w-96  aspect-video rounded-lg p-2 '>
         <div className='flex flex-col justify-center items-center border-4 border-[#fbed21] w-full h-full rounded-lg'>
 
           <Dropzone onDrop={(files) => { dropzone(files) }} multiple={false}>
