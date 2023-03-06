@@ -9,7 +9,7 @@ import ButtonShowMenu from '../UI/ButtonShowMenu'
 import FooterWeb from '../UI/FooterWeb'
 
 function EditorPage () {
-  const disabled = false
+  const disabled = true
   const image = JSON.parse(window.sessionStorage.getItem('image'))
   !image && window.location.replace('/')
   const originalImg = image.url
