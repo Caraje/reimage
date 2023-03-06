@@ -43,6 +43,11 @@ const OptionsForm = () => {
           >
             <option value=''>None</option>
             <option value='auto'>AUTO</option>
+            <option value='auto:low'>AUTO-LOW</option>
+            <option value='auto:eco'>AUTO-ECO</option>
+            <option value='auto:good'>AUTO-GOOD</option>
+            <option value='auto:best'>AUTO-BEST</option>
+            <option value='100'>100</option>
             <option value='90'>90</option>
             <option value='80'>80</option>
             <option value='70'>70</option>
