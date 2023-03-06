@@ -5,6 +5,7 @@ import EditorCanvas from '../editor/EditorCanvas'
 import ErrorAdvertice from '../editor/ErrorAdvertice'
 import FormAdjusts from '../editor/FormAdjusts'
 import ButtonBack from '../UI/ButtonBack'
+import ButtonShowMenu from '../UI/ButtonShowMenu'
 import FooterWeb from '../UI/FooterWeb'
 
 function EditorPage () {
@@ -13,6 +14,7 @@ function EditorPage () {
   !image && window.location.replace('/')
   const originalImg = image.url
   const [editedImg, setEditedImg] = useState(originalImg)
+  const [isVisible, setIsVisible] = useState(false)
   const [error, setError] = useState(false)
   const [adjusts, setAdjusts] = useState({
     fill: `c_limit,h_${image.height},w_${image.width}`,
@@ -33,7 +35,7 @@ function EditorPage () {
 
   return (
     <>
-      <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] '>
+      <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] p-4 '>
 
         <EditorCanvas
           image={image}
@@ -42,13 +44,22 @@ function EditorPage () {
           setError={setError}
         />
 
-        <FormAdjusts
-          adjusts={adjusts}
-          handleAdjusts={handleAdjusts}
-          image={editedImg}
-          name={image.public_id}
-          size={image}
-        />
+        {
+  isVisible
+    ? (
+      <FormAdjusts
+        adjusts={adjusts}
+        handleAdjusts={handleAdjusts}
+        image={editedImg}
+        name={image.public_id}
+        size={image}
+        setIsVisible={setIsVisible}
+      />
+      )
+    : (
+      <ButtonShowMenu setIsVisible={setIsVisible} />
+      )
+}
 
         {
           error && <ErrorAdvertice />
