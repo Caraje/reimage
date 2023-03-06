@@ -21,10 +21,11 @@ const OptionsForm = () => {
           <select
             className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-lg '
             name='format'
+            defaultValue='png'
           >
             <option value=''>None</option>
             <option value='jpg'>JPG</option>
-            <option value='png' selected>PNG</option>
+            <option value='png'>PNG</option>
             <option value='webp'>WEBP</option>
             <option value='bmp'>BMP</option>
             <option value='jxr'>JPEG XR</option>
@@ -38,6 +39,7 @@ const OptionsForm = () => {
           <select
             className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-lg '
             name='quality'
+            defaultValue=''
           >
             <option value=''>None</option>
             <option value='auto'>AUTO</option>
