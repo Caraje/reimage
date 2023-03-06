@@ -62,7 +62,7 @@ const OptionsForm = () => {
               className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4 '
               name='remove'
               type='checkbox'
-              disabled
+              // disabled
             />
           </label>
           <label className='flex items-center gap-4 font-bold text-lg w-full'>
