@@ -10,6 +10,8 @@ import FooterWeb from '../UI/FooterWeb'
 function EditorPage () {
   const disabled = true
   const image = JSON.parse(window.sessionStorage.getItem('image'))
+  !image && window.location.replace('/')
+  console.log(image)
   const originalImg = image.url
   const [editedImg, setEditedImg] = useState(originalImg)
   const [error, setError] = useState(false)
