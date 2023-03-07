@@ -39,6 +39,7 @@ function EditorPage () {
 
         <EditorCanvas
           image={image}
+          imgData={adjusts}
           originalImg={originalImg}
           editedImg={editedImg}
           setError={setError}
