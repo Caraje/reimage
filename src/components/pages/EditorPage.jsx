@@ -9,7 +9,7 @@ import ButtonShowMenu from '../UI/ButtonShowMenu'
 import FooterWeb from '../UI/FooterWeb'
 
 function EditorPage () {
-  const disabled = false
+  // const disabled = false
   const image = JSON.parse(window.sessionStorage.getItem('image'))
   !image && window.location.replace('/')
   const originalImg = image.url
@@ -65,9 +65,9 @@ function EditorPage () {
         {
           error && <ErrorAdvertice />
         }
-        {
+        {/* {
           disabled && <DisabledAdvertice />
-        }
+        } */}
       </main>
 
       <FooterWeb />

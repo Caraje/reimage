@@ -56,7 +56,7 @@ const OptionsForm = () => {
           </select>
         </label>
         <div className='flex flex-col gap-2s items-start '>
-          <label className='flex items-center gap-4 font-bold text-lg w-full'>
+          {/* <label className='flex items-center gap-4 font-bold text-lg w-full'>
             Remove Background:
             <input
               className='bg-slate-700 border-[1px] border-[#fbed21] rounded-sm h-8 font-bold text-xl p-4 '
@@ -64,7 +64,7 @@ const OptionsForm = () => {
               type='checkbox'
               // disabled
             />
-          </label>
+          </label> */}
           <label className='flex items-center gap-4 font-bold text-lg w-full'>
             Grayscale:
             <input
