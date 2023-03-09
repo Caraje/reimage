@@ -3,17 +3,18 @@ import { useEffect, useState } from 'react'
 import 'two-up-element'
 import LoadAdvertice from './LoadAdvertice'
 
-const ImgEditor = ({ img, editedImg, setError }) => {
+const ImgEditor = ({ img, editedImg }) => {
   const [tries, setTries] = useState(0)
-  const [isProcessing, setIsProcessing] = useState(true)
+  const [isProcessing, setIsProcessing] = useState(false)
   const [intervalId, setIntervalId] = useState(null)
 
   useEffect(() => {
     if (isProcessing) {
       clearInterval(intervalId)
+      console.log({ tries })
       const newIntervalId = setInterval(() => {
         setTries((prevTries) => prevTries + 1)
-      }, 500)
+      }, 1500)
       setIntervalId(newIntervalId)
     }
   }, [isProcessing])
