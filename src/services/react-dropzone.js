@@ -11,6 +11,7 @@ export async function dropzone (files, ...props) {
   formData.append('upload_preset', 'Reimage')
   formData.append('timestamp', (Date.now() / 1000))
   formData.append('api_key', APIKEY_CLOUDINARY)
+  console.log(files)
 
   if (fileType !== 'image') {
     console.log('The selected file type is not an image, please select an image and try again')

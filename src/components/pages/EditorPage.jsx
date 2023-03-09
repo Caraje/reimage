@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { addAdjusts } from '../../handles/addAdjusts'
-import DisabledAdvertice from '../editor/DisabledAdvertice'
+// import DisabledAdvertice from '../editor/DisabledAdvertice'
 import EditorCanvas from '../editor/EditorCanvas'
 import ErrorAdvertice from '../editor/ErrorAdvertice'
 import FormAdjusts from '../editor/FormAdjusts'
@@ -10,6 +10,8 @@ import FooterWeb from '../UI/FooterWeb'
 
 function EditorPage () {
   // const disabled = false
+  const NAME_CLOUD_CLOUDINARY = import.meta.env.VITE_NAME_CLOUD_CLOUDINARY
+
   const image = JSON.parse(window.sessionStorage.getItem('image'))
   !image && window.location.replace('/')
   const originalImg = image.url
@@ -21,7 +23,7 @@ function EditorPage () {
     format: 'f_png'
   })
 
-  const BASE_URL = 'https://res.cloudinary.com/caraje/image/upload/'
+  const BASE_URL = `https://res.cloudinary.com/${NAME_CLOUD_CLOUDINARY}/image/upload/`
   const IMG_DATA = `v${image.version}/${image.public_id}`
 
   useEffect(() => {
