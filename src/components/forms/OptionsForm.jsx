@@ -28,8 +28,6 @@ const OptionsForm = () => {
             <option value='png'>PNG</option>
             <option value='webp'>WEBP</option>
             <option value='bmp'>BMP</option>
-            <option value='jxr'>JPEG XR</option>
-            <option value='jp2'>JPEG 2000</option>
           </select>
         </label>
         <label
