@@ -35,7 +35,7 @@ function EditorPage () {
 
   return (
     <>
-      <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc99]  to-[#6600ff] p-4 '>
+      <main className='flex flex-col gap-8 align-middle max-w-full justify-center items-center h-screen bg-gradient-to-br from-[#00cc98]  to-[#6600ff] p-4 '>
 
         <EditorCanvas
           image={image}
