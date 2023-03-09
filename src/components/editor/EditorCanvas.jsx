@@ -3,11 +3,10 @@ import ErrorAdvertice from './ErrorAdvertice'
 import ImgEditor from './ImgEditor'
 
 const EditorCanvas = ({ image, originalImg, editedImg, setError, imgData }) => {
-  console.log(imgData.fill.split(','))
   const [, height, width] = imgData.fill.split(',')
   const widthImg = Number(width.split('w_')[1])
   const heightImg = Number(height.split('h_')[1])
-  console.log({ widthImg }, { heightImg })
+
   return (
     <section className={`flex justify-center items-center w-[${image.width}px] max-h-[${image.height}px] bg-gray-700/50 rounded-3xl border-2 border-[#fbed21] overflow-hidden`}>
       {
